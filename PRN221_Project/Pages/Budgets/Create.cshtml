@@ -1,0 +1,44 @@
+﻿@page
+@model PRN221_Project.Pages.Budgets.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Budget</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Budget.Month" class="control-label"></label>
+                <input asp-for="Budget.Month" class="form-control" />
+                <span asp-validation-for="Budget.Month" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Budget.TotalBudget" class="control-label"></label>
+                <input asp-for="Budget.TotalBudget" class="form-control" />
+                <span asp-validation-for="Budget.TotalBudget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Budget.Description" class="control-label"></label>
+                <input asp-for="Budget.Description" class="form-control" />
+                <span asp-validation-for="Budget.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
