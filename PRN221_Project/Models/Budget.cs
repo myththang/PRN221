@@ -11,7 +11,7 @@ public partial class Budget
 
     public DateTime? Month { get; set; }
 
-    public decimal? TotalBudget { get; set; }
+    public decimal TotalBudget { get; set; }
 
     public string? Description { get; set; }
 

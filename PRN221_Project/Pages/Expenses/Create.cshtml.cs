@@ -23,7 +23,7 @@ namespace PRN221_Project.Pages.Expenses
             if (HttpContext.Session.GetString("Username") == null)
             {
 
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Login");
             }
             Categories = new List<string> { "Food", "Transportation", "Shopping", "Debt Payments", "Savings" };
             return Page();

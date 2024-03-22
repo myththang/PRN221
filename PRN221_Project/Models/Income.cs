@@ -9,9 +9,9 @@ public partial class Income
 
     public int? UserId { get; set; }
 
-    public DateTime? IncomeDate { get; set; }
+    public DateTime IncomeDate { get; set; }
 
-    public decimal? Amount { get; set; }
+    public decimal Amount { get; set; }
 
     public string? Source { get; set; }
 

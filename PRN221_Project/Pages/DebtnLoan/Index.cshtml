@@ -1,0 +1,55 @@
+﻿@page
+@model PRN221_Project.Pages.DebtnLoan.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DebtsLoan[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DebtsLoan[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DebtsLoan[0].InterestRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DebtsLoan[0].Description)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.DebtsLoan) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Amount.ToString("C",new System.Globalization.CultureInfo(Model.culture)))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InterestRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DebtLoanId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DebtLoanId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DebtLoanId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,13 +1,19 @@
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using PRN221_Project.Models;
-using PRN221_Project.Models;
+using System;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().AddRazorPagesOptions(options =>
+{
+    options.Conventions.AddPageRoute("/Login", "");
+});
 builder.Services.AddDbContext<Prn221ProjectContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("MyCnn")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyCnn")));
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -27,5 +33,10 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.UseRequestLocalization(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("vi-VN");
+});
 
 app.Run();
+ 

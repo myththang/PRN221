@@ -11,7 +11,7 @@ public partial class DebtsLoan
 
     public string? Type { get; set; }
 
-    public decimal? Amount { get; set; }
+    public decimal Amount { get; set; }
 
     public decimal? InterestRate { get; set; }
 

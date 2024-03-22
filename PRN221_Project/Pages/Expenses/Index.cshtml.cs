@@ -19,13 +19,13 @@ namespace PRN221_Project.Pages.Expenses
         }
 
         public IList<Expense> Expense { get;set; } = default!;
-
+        public string culture = "vi-VN";
         public IActionResult OnGet()
         {
             if (HttpContext.Session.GetString("Username") == null)
             {
 
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Login");
             }
 
             var currentUser = _context.Users.FirstOrDefault(u => u.Username == HttpContext.Session.GetString("Username"));

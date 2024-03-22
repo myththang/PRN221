@@ -33,7 +33,7 @@
                 @Html.DisplayFor(modelItem => item.Month)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TotalBudget)
+                    @Html.DisplayFor(modelItem => item.TotalBudget.ToString("C",new System.Globalization.CultureInfo(Model.culture)))
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)

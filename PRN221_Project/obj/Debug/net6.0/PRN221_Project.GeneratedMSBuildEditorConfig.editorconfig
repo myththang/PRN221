@@ -36,6 +36,34 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVkZ2V0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/Currencies.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VycmVuY2llcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/DebtnLoan/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVidG5Mb2FuXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/DebtnLoan/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVidG5Mb2FuXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/DebtnLoan/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVidG5Mb2FuXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/DebtnLoan/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVidG5Mb2FuXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/DebtnLoan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVidG5Mb2FuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -78,10 +106,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/Incomes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5jb21lc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Study/PRN221/PRN221_Project/PRN221_Project/Pages/Investments/Create.cshtml]

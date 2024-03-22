@@ -34,7 +34,8 @@ namespace PRN221_Project.Pages
             if (user != null)
             {
                 HttpContext.Session.SetString("Username", Username);
-                return RedirectToPage("Index");
+                HttpContext.Session.SetString("NewCurrency", "1");
+                return RedirectToPage("Dashboard");
             }
             else
             {

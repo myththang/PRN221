@@ -19,7 +19,7 @@ namespace PRN221_Project.Pages.Incomes
         }
 
         public IList<Income> Income { get;set; } = default!;
-
+        public string culture = "vi-VN";
         public async Task OnGetAsync()
         {
             if (_context.Incomes != null)

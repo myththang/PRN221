@@ -1,0 +1,16 @@
+﻿@page
+@model PRN221_Project.Pages.CurrenciesModel
+@{
+}
+<form method="post">
+    <div class="form-group">
+        <label for="SelectedCurrency">Select Currency:</label>
+        <select class="form-control" asp-for="SelectedCurrency">
+            @foreach (var currency in Model.Currency)
+            {
+                <option value="@currency.CurrencyId">@currency.CurrencyCode</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Change Currency</button>
+</form>

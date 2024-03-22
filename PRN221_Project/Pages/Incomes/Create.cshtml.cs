@@ -17,10 +17,15 @@ namespace PRN221_Project.Pages.Incomes
         {
             _context = context;
         }
-
+        public List<string> Sources { get; set; }
         public IActionResult OnGet()
         {
-        ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+
+                return RedirectToPage("/Index");
+            }
+            Sources = new List<string> { "Salary", "Hourly wage", "Interest income", "Child support", "Others" };
             return Page();
         }
 
@@ -35,7 +40,9 @@ namespace PRN221_Project.Pages.Incomes
             {
                 return Page();
             }
-
+            var currentUser = _context.Users.FirstOrDefault(u => u.Username == HttpContext.Session.GetString("Username"));
+            Income.UserId = currentUser.UserId;
+            currentUser.Balance = currentUser.Balance + Income.Amount;
             _context.Incomes.Add(Income);
             await _context.SaveChangesAsync();
 

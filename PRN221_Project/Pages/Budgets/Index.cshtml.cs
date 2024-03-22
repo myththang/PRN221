@@ -19,7 +19,7 @@ namespace PRN221_Project.Pages.Budgets
         }
 
         public IList<Budget> Budget { get;set; } = default!;
-
+        public string culture = "vi-VN";
         public IActionResult OnGet()
         {
             if (HttpContext.Session.GetString("Username") == null)
@@ -30,8 +30,6 @@ namespace PRN221_Project.Pages.Budgets
 
             var currentUser = _context.Users.FirstOrDefault(u => u.Username == HttpContext.Session.GetString("Username"));
             Budget = _context.Budgets.Where(e => e.UserId == currentUser.UserId).ToList();
-
-
             return Page();
         }
     }

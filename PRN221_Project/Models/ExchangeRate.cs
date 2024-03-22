@@ -11,7 +11,7 @@ public partial class ExchangeRate
 
     public int? ToCurrencyId { get; set; }
 
-    public decimal? Rate { get; set; }
+    public decimal Rate { get; set; }
 
     public virtual Currency? FromCurrency { get; set; }
 
