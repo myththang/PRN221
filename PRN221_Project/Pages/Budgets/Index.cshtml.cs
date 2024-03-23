@@ -9,6 +9,7 @@ using PRN221_Project.Models;
 
 namespace PRN221_Project.Pages.Budgets
 {
+    [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client, NoStore = false)]
     public class IndexModel : PageModel
     {
         private readonly PRN221_Project.Models.Prn221ProjectContext _context;

@@ -1,0 +1,73 @@
+﻿@page
+@using Microsoft.AspNetCore.Http;
+@using PRN221_Project.Models;
+@model PRN221_Project.Pages.PaymentReminders.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentReminder[0].ReminderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentReminder[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentReminder[0].User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PaymentReminder)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReminderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ReminderId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ReminderId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ReminderId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (TempData["Reminders"] != null)
+{
+    var reminders = TempData["Reminders"] as List<PaymentReminder>;
+    <h2>Due in 24h</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Reminder Date</th>
+                <th>Description</th>
+                <th>User ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reminder in reminders)
+            {
+                <tr>
+                    <td>@reminder.ReminderDate</td>
+                    <td>@reminder.Description</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}

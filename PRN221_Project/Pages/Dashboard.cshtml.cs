@@ -1,23 +1,30 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using Microsoft.Extensions.Caching.Memory;
 using PRN221_Project.Models;
+using System.Diagnostics;
 
 namespace PRN221_Project.Pages
 {
+ 
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly Prn221ProjectContext _context;
+        
         public IndexModel(ILogger<IndexModel> logger, Prn221ProjectContext context)
         {
             _logger = logger;
             _context = context;
+           
         }
 
         public decimal TotalExpense { get; set; }
         public decimal TotalIncome { get; set; }
         public decimal Balance { get; set; }
+        public decimal Budget { get; set; }
 
         [BindProperty(SupportsGet = true)]
 
@@ -29,6 +36,7 @@ namespace PRN221_Project.Pages
         public string culture = "vi-VN";
         public void OnGet()
         {
+            
             if (!Request.Method.Equals("POST", StringComparison.OrdinalIgnoreCase))
             {
 
@@ -36,6 +44,7 @@ namespace PRN221_Project.Pages
                 TotalExpense = _context.Expenses.Where(e => e.UserId == currentUser.UserId).Sum(e => e.Amount);
                 TotalIncome = _context.Incomes.Where(i => i.UserId == currentUser.UserId).Sum(i => i.Amount);
                 Balance = currentUser.Balance;
+                Budget = _context.Budgets.Where(b => b.UserId == currentUser.UserId).Sum(b => b.TotalBudget);
                 // Fetch expense categories and amounts
                 Categories = new List<string> { "Food", "Transportation", "Shopping", "Debt Payments", "Savings" };
                 ExpenseAmounts = new List<decimal>();
@@ -71,12 +80,12 @@ namespace PRN221_Project.Pages
             }
             if (HttpContext.Session.GetString("NewCurrency") != "1")
             {
-                var oldCurrency = HttpContext.Session.GetString("OldCurrency");
+  
                 var newCurrency = HttpContext.Session.GetString("NewCurrency");
 
-                if (!string.IsNullOrEmpty(oldCurrency) && !string.IsNullOrEmpty(newCurrency))
+                if ( !string.IsNullOrEmpty(newCurrency))
                 {
-                    if (int.TryParse(oldCurrency, out int oldCurrencyId) && int.TryParse(newCurrency, out int newCurrencyId))
+                    if ( int.TryParse(newCurrency, out int newCurrencyId))
                     {
                         switch (newCurrencyId)
                         {
@@ -92,14 +101,15 @@ namespace PRN221_Project.Pages
                             
                         }
                         var eRate = _context.ExchangeRates
-                            .FirstOrDefault(e => e.FromCurrencyId == oldCurrencyId && e.ToCurrencyId == newCurrencyId);
+                            .FirstOrDefault(e =>  e.ToCurrencyId == newCurrencyId);
 
                         if (eRate != null)
                         {
 
                             TotalExpense = TotalExpense * eRate.Rate;
                             TotalIncome = TotalIncome * eRate.Rate;
-                            Balance = Balance * eRate.Rate;
+                            Balance = Balance * eRate.Rate; 
+                            Budget = Budget * eRate.Rate;
                             for (int i = 0; i < ExpenseAmounts.Count; i++)
                             {
                                 ExpenseAmounts[i] = ExpenseAmounts[i] * eRate.Rate;

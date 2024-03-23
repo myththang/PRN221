@@ -14,9 +14,9 @@
                 <p>@Model.TotalIncome.ToString("C",new System.Globalization.CultureInfo(Model.culture))</p>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="bi bi-cash-coin"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/Incomes" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -29,9 +29,9 @@
                 <p>@Model.TotalExpense.ToString("C",new System.Globalization.CultureInfo(Model.culture))</p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="bi bi-credit-card"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/Expenses" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -44,9 +44,23 @@
                 <p>@Model.Balance.ToString("C",new System.Globalization.CultureInfo(Model.culture))</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="bi bi-currency-dollar"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            
+        </div>
+    </div>
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>Budget</h3>
+
+                <p>@Model.Budget.ToString("C",new System.Globalization.CultureInfo(Model.culture))</p>
+            </div>
+            <div class="icon">
+                <i class="bi bi-piggy-bank"></i>
+            </div>
+            <a href="/Budgets" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 </div>

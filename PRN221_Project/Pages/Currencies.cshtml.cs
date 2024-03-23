@@ -5,6 +5,7 @@ using PRN221_Project.Models;
 
 namespace PRN221_Project.Pages
 {
+    [ResponseCache(Duration = 60)]
     public class CurrenciesModel : PageModel
     {
         private readonly Prn221ProjectContext _context;
@@ -23,7 +24,7 @@ namespace PRN221_Project.Pages
         {
             HttpContext.Session.SetString("OldCurrency", HttpContext.Session.GetString("NewCurrency"));
             HttpContext.Session.SetString("NewCurrency", SelectedCurrency);
-            return RedirectToPage();
+            return RedirectToPage("/Dashboard");
         }
     }
 }

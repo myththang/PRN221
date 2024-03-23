@@ -13,7 +13,7 @@ namespace PRN221_Project.Pages
            HttpContext.Session.Clear();
 
             // Redirect to home page or login page after logout
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Login");
         }
     }
 }

@@ -1,0 +1,37 @@
+﻿@page
+@model PRN221_Project.Pages.PaymentReminders.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PaymentReminder</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentReminder.ReminderDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PaymentReminder.ReminderDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentReminder.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PaymentReminder.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentReminder.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PaymentReminder.User.UserId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.PaymentReminder?.ReminderId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
